@@ -1,0 +1,144 @@
+
+package mythief;
+    import java.awt.*;
+    import java.awt.event.*;
+    import javax.swing.JFrame;
+    import javax.swing.JOptionPane;
+
+public class MyThief extends Panel{
+    static String name = "";
+    static int color = 0;
+    static int r = 0;
+    static int g = 0;
+    static int b = 0;
+    
+    @Override
+    public void paint(Graphics Z) {
+    //Arms
+         //Line
+        Z.setColor(Color.BLACK);
+        Z.fillRoundRect(455, 215, 25, 60, 20, 20);
+        Z.fillRoundRect(525, 215, 60, 25, 20, 20);
+        //Color
+        Z.setColor(new Color(250, 187, 102));
+        Z.fillRoundRect(460, 220, 15, 50, 20, 20);
+        Z.fillRoundRect(530, 220, 50, 15, 20, 20);
+        
+    //Money Bag
+        //Line
+        Z.setColor(Color.BLACK);
+        Z.fillOval(535, 230, 70, 70);
+        Z.fillOval(540, 235, 60, 60);
+        int[] x = {555, 585, 570};
+        int[] y = {215, 215, 250};
+        Z.fillPolygon(x,y,3);
+        //Color
+        Z.setColor(Color.GREEN);
+        Z.fillOval(540, 235, 60, 60);
+        int[] x2 = {565, 575, 570};
+        int[] y2 = {220, 220, 240};
+        Z.fillPolygon(x2,y2,3);
+    //Sleves
+        //Line
+        Z.setColor(Color.BLACK);
+        Z.fillOval(450, 210, 35, 35);
+        Z.fillOval(520, 210, 35, 35);
+        //Color
+        Z.setColor(new Color(r,g,b));
+        Z.fillOval(455, 215, 25, 25);
+        Z.fillOval(525, 215, 25, 25);
+        
+    //Body
+        //Line
+        Z.setColor(Color.BLACK);
+        Z.fillRoundRect(465, 205, 70, 95, 50, 50);
+        //Color
+        Z.setColor(new Color(r,g,b));
+        Z.fillRoundRect(470, 210, 60, 85, 50, 50);
+    
+    //Legs
+        //Line
+        Z.setColor(Color.BLACK);
+        Z.fillRoundRect(465, 265, 30, 70, 10, 10);
+        Z.fillRoundRect(505, 265, 30, 70, 10, 10);
+        
+        //Color
+        Z.setColor(new Color(r,g,b));
+        Z.fillRoundRect(470, 270, 20, 60, 10, 10);
+        Z.fillRoundRect(510, 270, 20, 60, 10, 10);
+        
+    //Belt
+        //Line
+        Z.setColor(Color.BLACK);
+        Z.fillRoundRect(465, 265, 70, 25, 3, 3);
+        //Color
+        Z.setColor(new Color(150,150,150));
+        Z.fillRoundRect(470, 270, 60, 15, 3, 3);
+        
+    //Head
+        //Line
+        Z.setColor(Color.BLACK);
+        Z.fillOval(455, 135, 90, 90);
+        //Color
+        Z.setColor(new Color(250, 187, 102));
+        Z.fillOval(460, 140, 80, 80);
+        
+    //Mask
+        //Line
+        Z.setColor(Color.BLACK);
+        Z.fillArc(455, 135, 90, 100, 360, 180);
+        //Color
+        Z.setColor(new Color(r,g,b));
+        Z.fillArc(460, 140, 80, 90, 360, 180);
+        
+    //Eyes
+        //Line
+        Z.setColor(Color.BLACK);
+        Z.fillOval(470, 155, 25, 25);
+        Z.fillOval(505, 155, 25, 25);
+        //Color
+        Z.setColor(new Color(210,210,210));
+        Z.fillOval(475, 160, 15, 15);
+        Z.fillOval(510, 160, 15, 15);
+    
+    //Mouth
+        Z.setColor(Color.BLACK);
+        Z.fillRoundRect(480, 190, 40, 3, 3, 3);
+        
+    //Name
+        Z.setColor(Color.BLACK);
+        Z.setFont(new Font("Century Gothic",Font.BOLD ,20));
+        Z.drawString("Name: "+name, 420, 100);
+    }
+    public static void main(String[] args) {
+        name = JOptionPane.showInputDialog("Name:");
+        color = Integer.parseInt(JOptionPane.showInputDialog("Color: \n[1] White \n[2] Black"));
+        MyThief panel = new MyThief();
+        JFrame frame = new JFrame();
+        frame.add(panel);
+        frame.setTitle("Glazel");
+        frame.setBackground(Color.BLACK);
+        frame.setSize(1000, 500);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        switch (color) {
+            case 1:
+                r = 250;
+                g = 250;
+                b = 250;
+                break;
+            case 2:
+                r = 35;
+                g = 35;
+                b = 35;
+                break;
+            default:
+                r = 100;
+                g = 100;
+                b = 100;
+                break;
+        }
+    }
+    
+}
